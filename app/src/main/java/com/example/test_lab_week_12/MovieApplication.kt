@@ -1,7 +1,7 @@
-package com.example.test_lab_week_12
+package com.example.test_lab_week_13
 
 import android.app.Application
-import com.example.test_lab_week_12.api.MovieService
+import com.example.test_lab_week_13.api.MovieService
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 class MovieApplication : Application() {
