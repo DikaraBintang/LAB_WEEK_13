@@ -1,0 +1,20 @@
+Hafizh Dikara Bintang
+00000104984
+
+1. Why is MVVM important? Which files represent Model, which files represent View, and which files represent ViewModel?
+Importance: MVVM is important because it separates the UI and business logic. This separation allows developers to update the Model or business logic without affecting other components, making it easier to add new features and test existing code. It is also useful for creating large applications with many views and data.
+Model Files: These represent the data layer. Based on the tutorial, this includes Movie.kt (marked with @Entity), MovieDao.kt, MovieDatabase.kt, and MovieRepository.kt.
+View Files: These display the data. Based on the tutorial, this includes MainActivity.kt, activity_main.xml, and RecyclerViewBinding.kt.
+ViewModel Files: This fetches data from the Model for the View. In the tutorial, this is represented by MovieViewModel.kt.
+
+2. In Part 1, you implemented Data Binding, why is this more efficient than using the normal method? 
+Data binding is more efficient because it allows the ViewModel to directly communicate with Views without the need to use findViewById or similar methods. It allows you to call app:list="" inside the RecyclerView to directly fill it with LiveData or StateFlow from the ViewModel.
+
+3. In Part 2, you implemented the Singleton Pattern, why is this important?
+The Singleton Pattern is important because it ensures there is only one single instance of the Database across multiple threads. This ensures data validity, prevents Race Conditions, and avoids the expensive cost of creating new database instances repeatedly.
+
+4. In Part 2 & 3, you implemented the Repository Pattern, why is this important?
+The Repository Pattern is important because it synchronizes application data between the web service (API) and the local database (Room). It ensures the local database is always up to date with the web service and enables users to access the app even when there is no internet connection in the area.
+
+5. In part 3, you implemented the Worker Manager, is there another way to refresh your database with the latest data other than using Worker?
+Yes, based on the logic shown in Part 2, Step 8, the application can refresh the database when the app is running (in the foreground). In that step, the code checks if the database is empty and, if so, fetches data from the API and adds it to the database immediately upon the request. While WorkManager is used for scheduled background updates, the repository logic allows for fetching data during active app usage.
